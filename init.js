@@ -39,6 +39,10 @@
     }
 
   function createButton() {
+    var btnExibir = document.createElement('button');
+    btnExibir.innerHTML = '<img id="imgID" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAABQklEQVR4nO2bP0rDYABHn+INpHYR3UScnDyBR1AH9SxOnktwcHH0z1UUbPG5pCJCksF++Wzze5ClhfB7L6RD2kIIYZVQ9pTt2jsGR5kq94rKh3JTe9NgNPKvjfzi+FSO/3ruzWUMLIkyBe6Ao19vbQCHwy8akJYrvzjelN3aG4vRyL+0yM+Us9obi6HsKM8t8nPlsvbGYkQ+8pGPfOQjH/nIryWRj3zkIx/5yEc+8mtJ5Ecsv6U8tsjPlIvaG4uinK7ylV/GN0N2vD5fwvn/N6O/BQCUifLUcStc1d5YnEQgEYBEABIBSAQgEYBEABIBSAQgEYBEAL4jdD1AGUWEvqdIiZAIiZAIiZAIiTDeCH0/lz+vvbE4dv9h4l3Zr72xOD0RrmvvG4SOCCe1tw1GE+Hhxwfhbe1NVVAOlEntHSGsCV9WQjLwyPzSLQAAAABJRU5ErkJggg==">';
+    btnExibir.id = "btnExibir";
+
     var divActions = document.createElement('div');
     divActions.id = "divExtension";
 
@@ -61,7 +65,7 @@
     btn.type = "button";
 
     var btnPadrao = document.createElement('button');
-    btnPadrao.innerText = "Pdrão";
+    btnPadrao.innerText = "Padrão";
     btnPadrao.classList.add('btn');
     btnPadrao.id = "btn-padrao-font";
     btn.type = "button";
@@ -71,6 +75,7 @@
     document.querySelector("#divExtension").appendChild(btnFontPlus);
     document.querySelector("#divExtension").appendChild(btnFontMenos);
     document.querySelector("#divExtension").appendChild(btnPadrao);
+    document.querySelector("body").appendChild(btnExibir);
   }
 
   function defineEvents() {
@@ -88,6 +93,14 @@
 
     document.getElementById("btn-padrao-font").addEventListener("click",function(event){
       controleDeFonte('body',-2);
+    });
+
+    document.getElementById("btnExibir").addEventListener("click", function(event) {
+      const div = document.getElementById("divExtension");
+      div.classList.toggle('ativo');
+
+      const btn = document.getElementById("btnExibir");
+      btn.classList.toggle('btnAtivo');
     });
   }
 
